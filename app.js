@@ -3,11 +3,11 @@
 let app = {
     // Tableau contenant des objets dragons
     dragons: [
-        {nom: 'Grand Maitre', img: 'grand-maitre.jpg' },
-        {nom: 'Gon', img: 'enfant.jpg' },
-        {nom: 'Fier', img: 'fier.jpg' },
-        {nom: 'Luminoso', img: 'lumineux.jpg' },
-        {nom: 'Coloré', img: 'colored.jpg' },
+        {nom: 'Grand Maitre', img: 'grand-maitre.jpg', desc: 'Si tu te prends encore pour moi, ce n\'est pas en dragon que je vais te changer' },
+        {nom: 'Gon', img: 'enfant.jpg', desc: 'Tu es et tu resteras un enfant, joueur et espiègle' },
+        {nom: 'Fier', img: 'fier.jpg', desc: 'Tu es un dragon fier, pas prêt à te faire écailler'  },
+        {nom: 'Luminoso', img: 'lumineux.jpg', desc: 'Quelles écailles brilantes tu as là ... et tu aimes les montrer ! '  },
+        {nom: 'Coloré', img: 'colored.jpg', desc: 'Tu es un dragon haut en couleur, un peu foufou, mais on t\'aime bien quand même' },
 
     ],
     // Méthode appelée au chargement de la page
@@ -26,14 +26,16 @@ let app = {
     //afffichage de la div du dragon
     speechDragon: function(number) {
         const image = '<img src="images/'+ app.dragons[number].img + '">';
+        const desc = '<p>' + app.dragons[number].desc + '</p>';
         if (number === 0) {
             const title = '<h3>Tu essaies de te faire passer pour le ' + app.dragons[number].nom +' ???</h3>';
 
-            return title + image;
+            return title + image + desc;
             
         }
         const title = '<h3>Tu es le dragon ' + app.dragons[number].nom +' </h3>';
-        return title + image;
+        
+        return title + image + desc;
     },
     
     nomDragon: function (inputForm) {
